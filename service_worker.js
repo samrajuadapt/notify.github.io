@@ -36,6 +36,7 @@ const doSomething = () => {
 // Normally you would only have one notification click listener.
 /**** START simpleNotification ****/
 self.addEventListener('notificationclick', function(event) {
+    console.log("NOTIFY", "Data Click", event)
     const clickedNotification = event.notification;
     clickedNotification.close();
 
