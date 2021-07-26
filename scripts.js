@@ -1,5 +1,5 @@
 function isSupported() {
-    console.log("NOTIFY", "SERVICE CHECK 2")
+    console.log("NOTIFY", "SERVICE CHECK 3")
     if (!('serviceWorker' in navigator)) {
         // Service Worker isn't supported on this browser, disable or hide UI.
         console.log("NOTIFY", "SERVICE WORKER ", "Not available")
@@ -65,3 +65,13 @@ async function showNotification() {
     reg.showNotification(title, options);
     /**** END dirLTRNotification ****/
 }
+
+self.addEventListener('notificationclick', function(event) {
+    console.log("NOTIFY", "Data Click", event)
+    const clickedNotification = event.notification;
+    clickedNotification.close();
+
+    // Do something as the result of the notification click
+    const promiseChain = doSomething();
+    event.waitUntil(promiseChain);
+});

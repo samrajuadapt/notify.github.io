@@ -35,13 +35,5 @@ const doSomething = () => {
 // This is here just to highlight the simple version of notification click.
 // Normally you would only have one notification click listener.
 /**** START simpleNotification ****/
-self.addEventListener('notificationclick', function(event) {
-    console.log("NOTIFY", "Data Click", event)
-    const clickedNotification = event.notification;
-    clickedNotification.close();
 
-    // Do something as the result of the notification click
-    const promiseChain = doSomething();
-    event.waitUntil(promiseChain);
-});
 /**** END simpleNotification ****/
