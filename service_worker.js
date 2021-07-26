@@ -10,7 +10,7 @@ function handlePushEvent(event) {
             if (!options.tag) {
                 options.tag = DEFAULT_TAG;
             }
-            return reg.showNotification(title, options);
+            return registration.showNotification(title, options);
         })
         .catch((err) => {
             console.error('Push event caused an error: ', err);
@@ -20,7 +20,7 @@ function handlePushEvent(event) {
                 body: event.data.text(),
                 tag: DEFAULT_TAG
             };
-            return reg.showNotification(title, options);
+            return registration.showNotification(title, options);
         });
 }
 
